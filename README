@@ -1,5 +1,65 @@
 # Collapse OS
 
+*Fork Author's Notes*
+
+While you will find the original CollapseOS repository and several forks of it
+within github, the author of the OS is developing on 8-bit workstations and has
+reverted to a more old-school method of maintaining repositories, namely, the
+scm tool.
+
+While the project continues to see improvements from upstream, the core of the
+project was announced as complete on March 20th 2021. What this means is that
+CollapseOS has reached the milestones set out by its creator, and that it can be
+reasonably relied upon as a bootstrap operating system.
+
+This repository is my versioned fork of the upstream project. The many use-cases
+I already have for such a portable forth mean that I will not be eschewing
+modern workstations in my work with the OS, though I will attempt only to offer
+upstream patches that fall in line with the original scope of the project.
+
+In order to ensure I do not introduce scope creep into the upstream changes,
+this repository will maintain multiple long-lived branches. First is the main
+branch, which I will use strictly to track changes made upstream. When I merge
+changes into main, it should only include changes that have been incorporated
+and realeased by the original author of CollapseOS, or whomever may be the
+official steward of the project at the time of change.
+
+I also maintain a trunk branch, which will serve as the "functional main branch"
+for any customizations to the codebase, whether I write them or they are
+contributed by third parties.
+
+When planning to submit changes upstream, a temporary branch off of main should
+be used. If changes from trunk are appropriate, you may include them, but do not
+branch from trunk to do so. The upstream developers are going to be most
+comfortable receiving and working with standard patch files, so you'll want to
+generate patches from your temporary branch.
+
+If your changes are incorporated upstream, use the released tarball containing
+your changes to update the main branch, rather than merging your changes in, as
+there may be additional changes to the upstream release besides your own.
+
+*Updating the main branch*
+
+Regardless of whether we submit changes upstream, when a new release is made, we
+have the option (not required) to update the main branch to match what is most
+recently available. Note that starting from the v1.0.0 tag here, we are working
+from a solid foundation, and it's not strictly required that we follow along
+with upstream releases to use the project, at all.
+
+For updating, though, prefer this method.
+
+- Checkout the main branch, stashing or committing any changes you're working
+  on.
+- Remove all the files except the .git dir from the project.
+- Download the newly released tarball from collapseos.org
+- Untar the contents directly into the top level project folder (it will
+  tar-bomb the dir, so just untar in place.)
+- Test the builds and suchwhat, make sure everything is working. It is trivial
+  to revert to the most recent commit; do so if needed.
+- Create a new commit with message "Updated to release 20210421". Note that the
+  date is just an example, and actually represents the release used for v1.0.0.
+- Push the new commit to origin (or wherever.)
+
 *Bootstrap post-collapse technology*
 
 Collapse OS is a Forth operating system and a collection of tools and
